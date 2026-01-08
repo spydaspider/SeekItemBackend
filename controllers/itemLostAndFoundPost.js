@@ -18,8 +18,13 @@ const createItem = async (req, res) => {
 
     // Placeholder: image path (replace later with cloud upload URL)
 
-    const imageUrl = `uploads/${req.file.filename}`;
+ const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'seekItemImages', // optional: store in a folder
+      use_filename: true,
+      unique_filename: false
+    });
 
+    const imageUrl = result.secure_url;
 
     // Hash verification answer for security
     const salt = await bcrypt.genSalt(10);

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const { createItem, getAllItems, getItemById, getMyItems, updateItemStatus, searchItems } = require('../controllers/itemLostAndFoundPost.js');
-const upload = require('../middleware/upload');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('cloudinary').v2;
 
